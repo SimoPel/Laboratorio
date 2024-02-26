@@ -3,19 +3,37 @@
 //
 
 #include "Credit.h"
+#include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 
-Credit::Credit(string name, double balance) {
-    this->name = name;
-    this->balance = balance;
+Credit::Credit(double balance) {
+    this->creditBalance = balance;
 }
 
-void Credit::changeBalance(double amount) {
-    balance += amount;
+void Credit::writeBalance(double amount, string &name) {
+    ifstream file("input.txt");
+    ofstream file2("input.txt");
+    string line;
+    while (getline(file, line)) {
+        if (line.find(name) != string::npos) {
+            file2 << name << " " << getBalance(name)+amount << endl;
+        }
+    }
 }
 
-Credit::~Credit() {
-    cout << "Credit " << name << " has been destroyed" << endl;
+double Credit::getBalance(string name) {
+
+    ifstream file("input.txt");
+    string line;
+    while (getline(file, line)) {
+        if (line.find(name) != string::npos) {
+            return creditBalance;
+        }
+    }
+    return 0;
 }
+
 
 

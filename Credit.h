@@ -11,12 +11,11 @@ using namespace std;
 
 class Credit : public Transaction {
 private:
-    string name;
-    double balance;
+    double creditBalance;
 public:
-    Credit(string name, double balance);
-    void changeBalance(double amount) override;
-    ~Credit();
+    explicit Credit(double creditBalance);
+    void writeBalance(double creditBalance, string &name) override;
+    double getBalance(string name) override;
 };
 
 #endif //LAB_CREDIT_H

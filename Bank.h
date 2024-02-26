@@ -6,20 +6,18 @@
 #define LAB_BANK_H
 #include <iostream>
 #include <string>
-#include <list>
+#include "Account.h"
 using namespace std;
 
 class Bank {
 private:
-    std::string name;
-    std::list<std::string> accounts;
+    string name;
 public:
-    Bank(std::string name);
-    void addBankAccount(string &account);
-    void removeBankAccount(string &account);
+    Bank(string name);
+    void addBankAccount(Account &account);
     void printBankAccounts();
-    string getName();
-    void setName(string &name);
+    Account *getAccount(string name);
+    bool isPresentName(string& name);
     ~Bank();
 };
 

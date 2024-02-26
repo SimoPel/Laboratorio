@@ -3,21 +3,33 @@
 //
 
 #include "Debit.h"
+#include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 
-Debit::Debit(string name, double balance) {
-    this->name = name;
+Debit::Debit(double balance) {
     this->debitBalance = balance;
 }
 
-void Debit::changeBalance(double amount) {
-    debitBalance += amount;
+void Debit::writeBalance(double amount, string &name) {
+    ifstream file("input.txt");
+    ofstream file2("input.txt");
+    string line;
+    while (getline(file, line)) {
+        if (line.find(name) != string::npos) {
+            file2 << name << " " << getBalance(name)-amount << endl;
+        }
+    }
 }
 
-void Debit::printBalance() {
-    cout << "Debit " << name << " has balance " << debitBalance << endl;
-}
-
-Debit::~Debit() {
-    cout << "Debit " << name << " has been destroyed" << endl;
+double Debit::getBalance(string name) {
+    ifstream file("input.txt");
+    string line;
+    while (getline(file, line)) {
+        if (line.find("Debit") != string::npos) {
+            return debitBalance;
+        }
+    }
+    return 0;
 }

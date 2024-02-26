@@ -61,6 +61,24 @@ build CMakeFiles/Lab.dir/Bank.cpp.obj: CXX_COMPILER__Lab_Debug C$:/Users/simon/O
   OBJECT_DIR = CMakeFiles\Lab.dir
   OBJECT_FILE_DIR = CMakeFiles\Lab.dir
 
+build CMakeFiles/Lab.dir/Credit.cpp.obj: CXX_COMPILER__Lab_Debug C$:/Users/simon/OneDrive/Desktop/Lab/Credit.cpp || cmake_object_order_depends_target_Lab
+  DEP_FILE = CMakeFiles\Lab.dir\Credit.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab.dir
+
+build CMakeFiles/Lab.dir/Debit.cpp.obj: CXX_COMPILER__Lab_Debug C$:/Users/simon/OneDrive/Desktop/Lab/Debit.cpp || cmake_object_order_depends_target_Lab
+  DEP_FILE = CMakeFiles\Lab.dir\Debit.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab.dir
+
+build CMakeFiles/Lab.dir/Account.cpp.obj: CXX_COMPILER__Lab_Debug C$:/Users/simon/OneDrive/Desktop/Lab/Account.cpp || cmake_object_order_depends_target_Lab
+  DEP_FILE = CMakeFiles\Lab.dir\Account.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Lab.dir
+  OBJECT_FILE_DIR = CMakeFiles\Lab.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Lab
@@ -69,7 +87,7 @@ build CMakeFiles/Lab.dir/Bank.cpp.obj: CXX_COMPILER__Lab_Debug C$:/Users/simon/O
 #############################################
 # Link the executable Lab.exe
 
-build Lab.exe: CXX_EXECUTABLE_LINKER__Lab_Debug CMakeFiles/Lab.dir/main.cpp.obj CMakeFiles/Lab.dir/Bank.cpp.obj
+build Lab.exe: CXX_EXECUTABLE_LINKER__Lab_Debug CMakeFiles/Lab.dir/main.cpp.obj CMakeFiles/Lab.dir/Bank.cpp.obj CMakeFiles/Lab.dir/Credit.cpp.obj CMakeFiles/Lab.dir/Debit.cpp.obj CMakeFiles/Lab.dir/Account.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Lab.dir

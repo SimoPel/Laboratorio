@@ -10,7 +10,8 @@ using namespace std;
 
 class Transaction {
 public:
-    virtual void changeBalance(double amount) = 0;
+    virtual void writeBalance(double amount, string &name) = 0;
+    virtual double getBalance(string name)=0;
     virtual ~Transaction() = default;
 };
 

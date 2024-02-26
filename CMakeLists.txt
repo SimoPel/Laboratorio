@@ -3,4 +3,4 @@ project(Lab)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Lab main.cpp Bank.h Bank.cpp Account.h Transaction.h)
+add_executable(Lab main.cpp Bank.h Bank.cpp Account.h Transaction.h Credit.h Credit.cpp Debit.h Debit.cpp Account.cpp)

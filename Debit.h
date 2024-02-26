@@ -11,13 +11,11 @@ using namespace std;
 
 class Debit : public Transaction {
 private:
-    string name;
     double debitBalance;
 public:
-    Debit(string name, double debitBalance);
-    void changeBalance(double amount) override;
-    void printBalance();
-    ~Debit();
+    explicit Debit(double debitBalance);
+    void writeBalance(double debitBalance, string &name) override;
+    double getBalance(string name) override;
 };
 
 #endif //LAB_DEBIT_H

@@ -3,6 +3,9 @@
 //
 
 #include "Account.h"
+#include <iostream>
+#include <string>
+#include "Credit.h"
 using namespace std;
 
 Account::Account(string name, double balance) {
@@ -11,7 +14,7 @@ Account::Account(string name, double balance) {
 }
 
 void Account::addTransaction(Transaction* transaction) {
-    transactions.push_back(transaction);
+
 }
 
 void Account::printBalance() {
@@ -20,6 +23,10 @@ void Account::printBalance() {
 
 string Account::getName() {
     return name;
+}
+
+double Account::getBalance() const {
+    return balance;
 }
 
 Account::~Account() {
