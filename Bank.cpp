@@ -15,13 +15,7 @@ Bank::Bank(string name) {
 }
 
 void Bank::addBankAccount(Account &account) {
-    if (isPresentName(account.getName())) {
-        std::cerr << "Esiste già un conto corrente con questo intestatario" << std::endl;
-        return;
-    }
-    ofstream file("input.txt", std::ios_base::app);
-    file << account.getName() << " " << account.getBalance() << std::endl;
-    file.close();
+
 }
 
 void Bank::printBankAccounts() {

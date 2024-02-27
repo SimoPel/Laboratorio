@@ -18,7 +18,7 @@ void Credit::writeBalance(double amount, string &name) {
     string line;
     while (getline(file, line)) {
         if (line.find(name) != string::npos) {
-            file2 << name << " " << getBalance(name)+amount << endl;
+            file2 << name << " " << calculateBalance(getBalance(name), amount) << endl;
         }
     }
 }
@@ -33,6 +33,9 @@ double Credit::getBalance(string name) {
         }
     }
     return 0;
+}
+double Credit::calculateBalance(double balance, double creditBalance) {
+    return balance + creditBalance;
 }
 
 

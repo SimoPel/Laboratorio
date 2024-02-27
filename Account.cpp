@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include "Credit.h"
+#include "Debit.h"
 using namespace std;
 
 Account::Account(string name, double balance) {
@@ -13,22 +14,23 @@ Account::Account(string name, double balance) {
     this->balance = balance;
 }
 
-void Account::addTransaction(Transaction* transaction) {
+void Account::addCredit(Account *account, double amount) {
+    writeBalance();
+    printBalance();
+}
 
+void Account::addDebit(Account *account, double amount){
 }
 
 void Account::printBalance() {
-    cout << "Account " << name << " has balance " << balance << endl;
+    cout << "Account " << name << " has balance " << getBalance() << endl;
 }
 
 string Account::getName() {
-    return name;
+     return name;
 }
 
-double Account::getBalance() const {
+double Account::getBalance(string &name) const {
     return balance;
 }
 
-Account::~Account() {
-    cout << "Account " << name << " has been destroyed" << endl;
-}

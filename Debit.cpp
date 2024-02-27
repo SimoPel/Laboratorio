@@ -18,7 +18,7 @@ void Debit::writeBalance(double amount, string &name) {
     string line;
     while (getline(file, line)) {
         if (line.find(name) != string::npos) {
-            file2 << name << " " << getBalance(name)-amount << endl;
+            file2 << name << " " << calculateBalance(getBalance(name), amount) << endl;
         }
     }
 }
@@ -33,3 +33,8 @@ double Debit::getBalance(string name) {
     }
     return 0;
 }
+double Debit::calculateBalance(double balance, double debitBalance){
+    return balance-debitBalance;
+}
+
+

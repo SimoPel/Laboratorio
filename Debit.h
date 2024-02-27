@@ -16,6 +16,8 @@ public:
     explicit Debit(double debitBalance);
     void writeBalance(double debitBalance, string &name) override;
     double getBalance(string name) override;
+    double calculateBalance(double balance, double debitBalance)override;
+    ~Debit();
 };
 
 #endif //LAB_DEBIT_H

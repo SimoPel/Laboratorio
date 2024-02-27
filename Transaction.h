@@ -12,6 +12,7 @@ class Transaction {
 public:
     virtual void writeBalance(double amount, string &name) = 0;
     virtual double getBalance(string name)=0;
+    virtual double calculateBalance(double Balance, double amount)=0;
     virtual ~Transaction() = default;
 };
 

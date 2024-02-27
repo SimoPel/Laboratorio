@@ -25,19 +25,6 @@ int main() {
                 bank.addBankAccount(account);
                 break;
             }
-            case 2: {
-                cout << "Inserisci il nome dell'account che vuoi rimuovere" << endl;
-                string name;
-                cin >> name;
-                if(!bank.isPresentName(name)){
-                    cerr<<"Non è presente nessun conto con questo nome"<<endl;
-                    break;
-                }
-                Account account(name, 0);
-                bank.removeBankAccount(account);
-                cerr<<"Conto Corrente rimosso con successo"<<endl;
-                break;
-            }
             case 3: {
                 bank.printBankAccounts();
                 break;
@@ -50,14 +37,13 @@ int main() {
                 cout << "Inserisci il nome dell'account" << endl;
                 string name;
                 cin >> name;
-                Account account(name, 0);
+                Account account(getName(name), getBalance(name));
                 cout << "Inserisci il tipo di transazione (credito o debito) e quantità" << endl;
                 string description;
                 double amount;
                 cin >> description >> amount;
                 if(description == "credito"){
-                    Credit credit(name, amount);
-                    account.addTransaction(&credit);
+                    account.addCredit(&credit);
                 }
                 else if(description == "debito"){
                     Debit debit(name, amount);

@@ -18,11 +18,11 @@ private:
     double balance;
 public:
     Account(string name, double balance);
-    void addTransaction(Transaction* transaction);
+    void addCredit(Account *account, double amount);
+    void addDebit(Account * account, double amount);
     void printBalance();
     string getName();
-    double getBalance() const;
-    ~Account();
+    double getBalance(string &name) const;
 };
 
 #endif //LAB_ACCOUNT_H
