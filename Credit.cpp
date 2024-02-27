@@ -21,10 +21,9 @@ void Credit::writeBalance(double amount, string &name) {
             file2 << name << " " << calculateBalance(getBalance(name), amount) << endl;
         }
     }
-}
+}//scrive il saldo nel file avendo il nome ed il saldo della transazione
 
 double Credit::getBalance(string name) {
-
     ifstream file("input.txt");
     string line;
     while (getline(file, line)) {
@@ -33,10 +32,12 @@ double Credit::getBalance(string name) {
         }
     }
     return 0;
-}
+}//trova il saldo del conto sapendo il nome
+
 double Credit::calculateBalance(double balance, double creditBalance) {
     return balance + creditBalance;
-}
+}//calcola il saldo
 
+Credit::~Credit() = default;
 
 

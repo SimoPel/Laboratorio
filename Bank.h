@@ -13,11 +13,11 @@ class Bank {
 private:
     string name;
 public:
-    Bank(string name);
-    void addBankAccount(Account &account);
-    void printBankAccounts();
-    Account *getAccount(string name);
-    bool isPresentName(string& name);
+    explicit Bank(string name);
+    static void addBankAccount(Account *account);
+    static void printBankAccounts();
+    static Account *getAccount(string& name);
+    static bool isPresentName(string& name);
     ~Bank();
 };
 

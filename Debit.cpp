@@ -21,20 +21,22 @@ void Debit::writeBalance(double amount, string &name) {
             file2 << name << " " << calculateBalance(getBalance(name), amount) << endl;
         }
     }
-}
+}//scrive il saldo nel file avendo il nome ed il saldo della transazione
 
 double Debit::getBalance(string name) {
     ifstream file("input.txt");
     string line;
     while (getline(file, line)) {
-        if (line.find("Debit") != string::npos) {
+        if (line.find(name) != string::npos) {
             return debitBalance;
         }
     }
     return 0;
-}
-double Debit::calculateBalance(double balance, double debitBalance){
-    return balance-debitBalance;
-}
+}//trova il saldo del conto sapendo il nome
 
+double Debit::calculateBalance(double balance, double debitBalance){
+    return balance - debitBalance;
+}//calcola il saldo
+
+Debit::~Debit() = default;
 

@@ -6,7 +6,6 @@
 #include "Account.h"
 #include <iostream>
 #include <string>
-#include <fstream>
 
 using namespace std;
 
@@ -14,34 +13,34 @@ Bank::Bank(string name) {
     this->name = name;
 }
 
-void Bank::addBankAccount(Account &account) {
+void Bank::addBankAccount(Account *account) {
+    ofstream file("input.txt", ios::app);
+    string name = account->getName();
+    file << account->getName() << " " << account->getBalance(name) << endl;
+    file.close();
+}//aggiunge un conto corrente al file
 
-}
 
 void Bank::printBankAccounts() {
     ifstream file("input.txt");
-
     if (!file.is_open()) {
         std::cerr << "Impossibile aprire il file." << std::endl;
         return;
     }
-
-    std::string line;
-    while (std::getline(file, line)) {
-        std::cout << line << std::endl;
+    string line;
+    while (getline(file, line)) {
+        cout << line << endl;
     }
-
     file.close();
-}
+}//stampa tutti i conti correnti presenti nel file
 
-Account *Bank::getAccount(string name) {
+Account *Bank::getAccount(string &name) {
     ifstream file("input.txt");
 
     if (!file.is_open()) {
         std::cerr << "Impossibile aprire il file." << std::endl;
         return nullptr;
     }
-
     std::string line;
     while (std::getline(file, line)) {
         if (line.find(name) != std::string::npos) {
@@ -52,27 +51,23 @@ Account *Bank::getAccount(string name) {
     file.close();
     std::cerr << "Non è presente nessun conto corrente in questa banca con questo intestatario" << std::endl;
     return nullptr;
-}
+}//trova il conto corrente sapendo il nome
 
 bool Bank::isPresentName(string &name) {
     ifstream file("input.txt");
-
     if (!file.is_open()) {
         std::cerr << "Impossibile aprire il file." << std::endl;
         return false;
     }
-
-    std::string line;
-    while (std::getline(file, line)) {
-        if (line.find(name) != std::string::npos) {
+    string line;
+    while (getline(file, line)) {
+        if (line.find(name) != string::npos) {
             file.close();
             return true;
         }
     }
     file.close();
     return false;
-}
+}//verifica se il nome è già presente
 
-
-Bank::~Bank() {
-}
+Bank::~Bank() = default;

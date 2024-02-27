@@ -15,22 +15,34 @@ Account::Account(string name, double balance) {
 }
 
 void Account::addCredit(Account *account, double amount) {
-    writeBalance();
-    printBalance();
-}
+    Credit credit(amount);
+    credit.writeBalance(amount, name);
+}//aggiunge il credito al conto
 
 void Account::addDebit(Account *account, double amount){
-}
+    Debit debit(amount);
+    debit.writeBalance(amount, name);
+}//aggiunge il debito al conto
 
 void Account::printBalance() {
-    cout << "Account " << name << " has balance " << getBalance() << endl;
+    cout << "Account " << name << " has balance " << getBalance(name) << endl;
 }
 
-string Account::getName() {
-     return name;
-}
+double Account::getBalance(string &name) {
+    ifstream file("input.txt");
+    string line;
+    while (getline(file, line)) {
+        if (line.find(name) != string::npos) {
+            return stod(line.substr(name.length()));
+        }
+    }
+    return 0;
+}//trova il saldo del conto sapendo il nome
 
-double Account::getBalance(string &name) const {
-    return balance;
-}
+string Account::getName(){
+    return name;
+}//ritorna il nome del conto
+
+
+Account::~Account() = default;
 

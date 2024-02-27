@@ -21,8 +21,9 @@ public:
     void addCredit(Account *account, double amount);
     void addDebit(Account * account, double amount);
     void printBalance();
+    static double getBalance(string &name) ;
     string getName();
-    double getBalance(string &name) const;
+    ~Account();
 };
 
 #endif //LAB_ACCOUNT_H
